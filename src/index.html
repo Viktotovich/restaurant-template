@@ -6,14 +6,41 @@
     <title>Restaurant Template</title>
   </head>
   <body>
+    <div class="title-container">
+      <div class="mock-logotype-container">
+        <div id="mock-logotype">I am a logo</div>
+        <div id="mock-restaurant-name">V's Vietnam Shack</div>
+      </div>
+      <div id="contact-details">+971 55 995 14 06</div>
+      <div id="disclamer">
+        *this business does not exist, and is only a template
+      </div>
+    </div>
     <header>
       <nav id="tabs">
         <div id="extender">☰</div>
         <button id="home">Home</button>
         <button id="menu">Menu</button>
         <button id="about">About Us</button>
+        <button id="catering">Catering</button>
+        <button id="contact us">Contact Us</button>
       </nav>
     </header>
+    <!--This part must never change, each component contains each individual content's content-->
     <div id="content"></div>
+    <!--Keep footer everywhere-->
+    <div id="footer-container">
+      <div class="address">
+        Address: <span>123 nowhere street, Festival Island</span>
+      </div>
+      <div class="email">vlad@vandbruno.com</div>
+      <div class="credits">
+        This dynamic template was created by Vladimir Laskin. Technology of
+        choice: Javascript, Webpack, and HTML/CSS
+      </div>
+      <div id="disclamer">
+        *this business does not exist, and is only a template
+      </div>
+    </div>
   </body>
 </html>
