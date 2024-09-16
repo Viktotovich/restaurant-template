@@ -1,10 +1,11 @@
+/* eslint-disable */
 const { watchFile } = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/main.js",
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "restaurant-template.js",
