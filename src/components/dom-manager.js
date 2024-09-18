@@ -1,3 +1,5 @@
+import { homeGenerator } from "./home";
+
 const domManager = {
   findHeaderDom: function () {
     const extender = document.querySelector("#extender");
@@ -12,6 +14,9 @@ const domManager = {
     } else {
       tabs.setAttribute("class", "invisible");
     }
+  },
+  initialLoad: function () {
+    homeGenerator.initiateHome();
   },
 };
 
