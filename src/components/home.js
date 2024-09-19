@@ -35,10 +35,14 @@ const homeGenerator = {
   placeContent: function () {
     const carouselSpace = this.createCarousel();
     const contentSpace = this.getContentSpace();
+    const homeContent = secondaryContent.createSecondaryContent();
 
     contentSpace.appendChild(carouselSpace);
+    contentSpace.appendChild(homeContent);
+    //contentSpace.appendChild(homeContent);
 
     this.createSlides(carouselSpace);
+    mediaNavigator.moveToStart();
   },
   createCarousel: function () {
     const carousel = document.createElement("div");
@@ -155,6 +159,12 @@ const mediaNavigator = {
       this.index = 0;
     },
   },
+  moveToStart: function () {
+    const dom = domsArr[0];
+    mediaNavigator.clearSelections();
+
+    dom.classList.add("current-image");
+  },
   moveLeft: function () {
     mediaNavigator.currentIndex.decreaseIndex();
     const dom = domsArr[mediaNavigator.currentIndex.getIndex()];
@@ -182,6 +192,75 @@ const mediaNavigator = {
     });
   },
 };
+
+const secondaryContent = {
+  createSecondaryContent: function () {
+    const secondaryContainer = document.createElement("div");
+    const title = document.createElement("h2");
+    const aboutUsContainer = this.createAboutUs();
+    const ourRestaurant = this.createImage();
+    const ctaContainer = this.createCTA();
+
+    title.textContent = "Our Little Dream";
+
+    secondaryContainer.appendChild(aboutUsContainer);
+    secondaryContainer.appendChild(ourRestaurant);
+    secondaryContainer.appendChild(ctaContainer);
+
+    secondaryContainer.setAttribute("id", "home-content");
+
+    return secondaryContainer;
+  },
+  createAboutUs: function () {
+    const aboutUsContainer = document.createElement("div");
+    const aboutUsTitle = document.createElement("h3");
+    const aboutUsText = document.createElement("div");
+
+    aboutUsContainer.appendChild(aboutUsTitle);
+    aboutUsContainer.appendChild(aboutUsText);
+
+    aboutUsContainer.classList.add("about-us-container");
+    aboutUsTitle.classList.add("about-us-title");
+    aboutUsText.classList.add("about-us-text");
+
+    aboutUsTitle.textContent = "Get to know us";
+    aboutUsText.innerHTML =
+      "We are a small, cozy, lovely, yet hugely ambitious traditional Vietnamese food restaurants. <br><br> Authenticity is at the heart of our operations, we love Vietnam, and we want to share that love with you.";
+
+    return aboutUsContainer;
+  },
+  createImage: function () {
+    const imageContainer = document.createElement("div");
+    //make new Image
+
+    imageContainer.classList.add("restaurant-image");
+
+    return imageContainer;
+  },
+  createCTA: function () {
+    //TODO add an image to the container through css
+    const ctaContainer = document.createElement("div");
+    const foodIcon = document.createElement("div");
+    const menuTitle = document.createElement("h3");
+    const ctaButton = document.createElement("button");
+
+    foodIcon.textContent = "🍴";
+    menuTitle.textContent = "MENU";
+    ctaButton.textContent = "OPEN MENU";
+
+    ctaContainer.classList.add("cta-container");
+    foodIcon.classList.add("food-icon");
+    menuTitle.classList.add("menu-title");
+    ctaButton.classList.add("cta-button");
+
+    ctaContainer.appendChild(foodIcon);
+    ctaContainer.appendChild(menuTitle);
+    ctaContainer.appendChild(ctaButton);
+
+    return ctaContainer;
+  },
+};
+
 export { homeGenerator };
 
 /*  Carousel
