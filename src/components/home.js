@@ -3,8 +3,7 @@ import vietnamDish from "../images/vietnamese-dish.gif";
 import noodleSoup from "../images/pho-ga-noodle-chicken-soup.png";
 import vietnamLove from "../images/we-love-vietnam.png";
 
-// This is such a f*cking overkill, and I am so here for it
-const slidesObject = {};
+let slidesArr = [];
 
 class ImageSlide {
   constructor(name, altText, media, index) {
@@ -34,11 +33,15 @@ const homeGenerator = {
   },
   placeContent: function () {
     const carrouselSpace = this.createCarrousel();
+    const contentSpace = this.getContentSpace();
+
+    contentSpace.appendChild(carrouselSpace);
+
     this.createSlides(carrouselSpace);
   },
   createCarrousel: function () {
     const carrousel = document.createElement("div");
-    carrousel.classList.add(".carroussel");
+    carrousel.classList.add("carroussel");
 
     return carrousel;
   },
@@ -67,19 +70,30 @@ const homeGenerator = {
       vietnamLove,
       3
     );
-    slidesObject.firstGif = firstGif;
-    slidesObject.secondGif = secondGif;
-    slidesObject.firstImage = firstImage;
-    slidesObject.secondImage = secondImage;
+    //I remembered how much trauma removing duplicates in an object gave me, and delete obj key side effects. Obj changed to arr
+    slidesArr = [];
+    slidesArr.push(firstGif, secondGif, firstImage, secondImage);
     this.processMedia(carrousel);
   },
   processMedia: function (carrousel) {
-    Object.keys(slidesObject).forEach((key) => {
-      this.appendMedia(carrousel, slidesObject[key]);
+    slidesArr.forEach((element) => {
+      this.appendMedia(carrousel, element);
     });
   },
   appendMedia: function (carrousel, obj) {
-    console.log(obj);
+    const imageContainer = document.createElement("div");
+    const className = obj.name;
+    const altText = obj.altText;
+    const slideMedia = obj.getMedia();
+
+    slideMedia.classList.add(className);
+    slideMedia.setAttribute("alt", altText);
+
+    imageContainer.classList.add("image-container");
+    imageContainer.setAttribute("id", `image${obj.index}`);
+
+    imageContainer.appendChild(slideMedia);
+    carrousel.appendChild(imageContainer);
   },
 };
 

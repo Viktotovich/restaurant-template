@@ -8,7 +8,7 @@ const domManager = {
     homeButton.addEventListener("click", this.initialLoad);
     extender.addEventListener("click", this.toggleExtender);
   },
-  toggleExtender() {
+  toggleExtender: function () {
     const tabs = document.querySelector("#tabs");
 
     if (tabs.getAttribute("class") === "invisible") {
