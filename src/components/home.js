@@ -32,20 +32,50 @@ const homeGenerator = {
     this.getContentSpace().textContent = "";
   },
   placeContent: function () {
-    const carrouselSpace = this.createCarrousel();
+    const carouselSpace = this.createCarousel();
     const contentSpace = this.getContentSpace();
 
-    contentSpace.appendChild(carrouselSpace);
+    contentSpace.appendChild(carouselSpace);
 
-    this.createSlides(carrouselSpace);
+    this.createSlides(carouselSpace);
   },
-  createCarrousel: function () {
-    const carrousel = document.createElement("div");
-    carrousel.classList.add("carroussel");
+  createCarousel: function () {
+    const carousel = document.createElement("div");
+    const goLeft = document.createElement("span");
+    const goRight = document.createElement("span");
 
-    return carrousel;
+    goLeft.textContent = "<";
+    goRight.textContent = ">";
+
+    goLeft.addEventListener("click", mediaNavigator.moveLeft);
+    goRight.addEventListener("click", mediaNavigator.moveRight);
+
+    carousel.appendChild(goLeft);
+    carousel.appendChild(goRight);
+
+    goLeft.classList.add("go-left");
+    goRight.classList.add("go-right");
+    carousel.classList.add("carousel");
+    this.createNavCircles(carousel);
+
+    return carousel;
   },
-  createSlides: function (carrousel) {
+  createNavCircles: function (carousel) {
+    const navContainer = document.createElement("div");
+
+    navContainer.classList.add("nav-container");
+    carousel.appendChild(navContainer);
+
+    for (let i = 0; i < 4; i++) {
+      let navCircle = document.createElement("span");
+
+      navCircle.classList.add(`image${i}`);
+
+      navContainer.appendChild(navCircle);
+      navCircle.addEventListener("click", mediaNavigator.moveExact);
+    }
+  },
+  createSlides: function (carousel) {
     const firstGif = new ImageSlide(
       "vietnam-overview",
       "A sky scene overlooking the terrains of Vietnam. The beach, the mountains, and the environment is clearly visible",
@@ -73,14 +103,14 @@ const homeGenerator = {
     //I remembered how much trauma removing duplicates in an object gave me, and delete obj key side effects. Obj changed to arr
     slidesArr = [];
     slidesArr.push(firstGif, secondGif, firstImage, secondImage);
-    this.processMedia(carrousel);
+    this.processMedia(carousel);
   },
-  processMedia: function (carrousel) {
+  processMedia: function (carousel) {
     slidesArr.forEach((element) => {
-      this.appendMedia(carrousel, element);
+      this.appendMedia(carousel, element);
     });
   },
-  appendMedia: function (carrousel, obj) {
+  appendMedia: function (carousel, obj) {
     const imageContainer = document.createElement("div");
     const className = obj.name;
     const altText = obj.altText;
@@ -93,13 +123,25 @@ const homeGenerator = {
     imageContainer.setAttribute("id", `image${obj.index}`);
 
     imageContainer.appendChild(slideMedia);
-    carrousel.appendChild(imageContainer);
+    carousel.appendChild(imageContainer);
   },
 };
 
+const mediaNavigator = {
+  moveLeft: function () {
+    console.log("check");
+  },
+  moveRight: function () {
+    console.log("check");
+  },
+  moveExact: function (e) {
+    console.log(e);
+    //TODO: Match class with ID to find the right img
+  },
+};
 export { homeGenerator };
 
-/*  Carrousel
+/*  Carousel
                     Top
         <Go Back-------------Go Right>
                     Bottom
