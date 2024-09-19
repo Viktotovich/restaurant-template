@@ -4,6 +4,7 @@ import noodleSoup from "../images/pho-ga-noodle-chicken-soup.png";
 import vietnamLove from "../images/we-love-vietnam.png";
 
 let slidesArr = [];
+let domsArr = [];
 
 class ImageSlide {
   constructor(name, altText, media, index) {
@@ -102,6 +103,7 @@ const homeGenerator = {
     );
     //I remembered how much trauma removing duplicates in an object gave me, and delete obj key side effects. Obj changed to arr
     slidesArr = [];
+    domsArr = [];
     slidesArr.push(firstGif, secondGif, firstImage, secondImage);
     this.processMedia(carousel);
   },
@@ -124,6 +126,8 @@ const homeGenerator = {
 
     imageContainer.appendChild(slideMedia);
     carousel.appendChild(imageContainer);
+
+    domsArr.push(imageContainer);
   },
 };
 
@@ -153,15 +157,29 @@ const mediaNavigator = {
   },
   moveLeft: function () {
     mediaNavigator.currentIndex.decreaseIndex();
-    console.log(mediaNavigator.currentIndex.getIndex());
+    const dom = domsArr[mediaNavigator.currentIndex.getIndex()];
+
+    mediaNavigator.clearSelections();
+    dom.classList.add("current-image");
   },
   moveRight: function () {
     mediaNavigator.currentIndex.increaseIndex();
-    console.log(mediaNavigator.currentIndex.getIndex());
+    const dom = domsArr[mediaNavigator.currentIndex.getIndex()];
+
+    mediaNavigator.clearSelections();
+    dom.classList.add("current-image");
   },
   moveExact: function (e) {
     console.log(e);
     //TODO: Match class with ID to find the right img
+
+    this.clearSelections();
+    //dom.classList.add("current-image");
+  },
+  clearSelections: function () {
+    domsArr.forEach((element) => {
+      element.classList.remove("current-image");
+    });
   },
 };
 export { homeGenerator };
