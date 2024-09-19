@@ -3,7 +3,9 @@ import { homeGenerator } from "./home";
 const domManager = {
   findHeaderDom: function () {
     const extender = document.querySelector("#extender");
+    const homeButton = document.querySelector("#home");
 
+    homeButton.addEventListener("click", this.initialLoad);
     extender.addEventListener("click", this.toggleExtender);
   },
   toggleExtender() {

@@ -1,5 +1,5 @@
-import vietnamScenary from "../images/vietnam-overview.mp4";
-import vietnamDish from "../images/vietnamese-dish.mp4";
+//import vietnamScenary from "../images/vietnam-overview.mp4";
+//import vietnamDish from "../images/vietnamese-dish.mp4";
 import noodleSoup from "../images/pho-ga-noodle-chicken-soup.png";
 import vietnamLove from "../images/we-love-vietnam.png";
 
@@ -13,7 +13,7 @@ class ImageSlide {
     this.index = index;
   }
 
-  linkMedia() {
+  getMedia() {
     const newMedia = new Image();
     newMedia.src = this.media;
     return newMedia;
@@ -33,7 +33,7 @@ const homeGenerator = {
   },
   placeContent: function () {
     const carrouselSpace = this.createCarrousel();
-    this.appendImages(carrouselSpace);
+    this.createSlides(carrouselSpace);
   },
   createCarrousel: function () {
     const carrousel = document.createElement("div");
@@ -41,7 +41,7 @@ const homeGenerator = {
 
     return carrousel;
   },
-  appendImages: function (carrousel) {
+  createSlides: function (carrousel) {
     const firstImage = new ImageSlide(
       "Pho Ga Noodle Chicken Soup, chopsticks, and a white background",
       noodleSoup,
@@ -54,6 +54,10 @@ const homeGenerator = {
     );
     slidesObject.firstImage = firstImage;
     slidesObject.secondImage = secondImage;
+    this.appendMedia(carrousel);
+  },
+  appendMedia: function (carrousel) {
+    console.log(carrousel);
   },
 };
 

@@ -1,6 +1,15 @@
 :root {
   --shadow-default: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Header */
 header {
   display: flex;
