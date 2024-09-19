@@ -128,11 +128,36 @@ const homeGenerator = {
 };
 
 const mediaNavigator = {
+  currentIndex: {
+    index: 0,
+    getIndex: function () {
+      return this.index;
+    },
+    increaseIndex: function () {
+      if (this.index !== 3) {
+        this.index += 1;
+      } else {
+        this.resetIndex();
+      }
+    },
+    decreaseIndex: function () {
+      if (this.index !== 0) {
+        this.index -= 1;
+      } else {
+        this.index = 3;
+      }
+    },
+    resetIndex: function () {
+      this.index = 0;
+    },
+  },
   moveLeft: function () {
-    console.log("check");
+    mediaNavigator.currentIndex.decreaseIndex();
+    console.log(mediaNavigator.currentIndex.getIndex());
   },
   moveRight: function () {
-    console.log("check");
+    mediaNavigator.currentIndex.increaseIndex();
+    console.log(mediaNavigator.currentIndex.getIndex());
   },
   moveExact: function (e) {
     console.log(e);
