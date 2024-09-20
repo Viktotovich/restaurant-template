@@ -1,7 +1,8 @@
 import vietnamScenary from "../images/vietnam-overview.gif";
 import vietnamDish from "../images/vietnamese-dish.gif";
 import noodleSoup from "../images/pho-ga-noodle-chicken-soup.png";
-import vietnamLove from "../images/we-love-vietnam.png";
+import vietnamLove from "../images/we-love-vietnam.jpg";
+import restaurantView from "../images/restaurant-image.png";
 
 let slidesArr = [];
 let domsArr = [];
@@ -231,9 +232,13 @@ const secondaryContent = {
   },
   createImage: function () {
     const imageContainer = document.createElement("div");
-    //make new Image
+    const restaurantImage = new Image();
 
-    imageContainer.classList.add("restaurant-image");
+    restaurantImage.src = restaurantView;
+    imageContainer.appendChild(restaurantImage);
+
+    restaurantImage.classList.add("restaurant-image");
+    imageContainer.classList.add("restaurant-image-container");
 
     return imageContainer;
   },
