@@ -11,6 +11,26 @@ body {
 }
 
 /* Header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem 0 0;
+  /* position: absolute; */
+  /* The only fix is to re-add the images un-scaled-down */
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 2rem;
+}
+
+.mock-logotype-container {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   display: flex;
   margin: 2rem 0;
@@ -22,6 +42,20 @@ header {
 
 #tabs.visible {
   visibility: visible;
+}
+
+#tabs button {
+  appearance: none;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  margin: 0 0.5rem;
+  opacity: 0.9;
+}
+
+#tabs button:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 #extender {
@@ -47,7 +81,6 @@ header {
 
 /* Home Page */
 .carousel {
-  border: red 1px solid;
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -59,16 +92,43 @@ header {
 }
 
 .image-container.current-image {
-  z-index: 10;
+  z-index: 1;
 }
 
-img {
-  max-width: 50%;
-  min-width: 50%;
-  max-height: 50%;
-  min-height: 50%;
+.image-container img {
+  max-width: 100%;
 }
 
+.go-left,
+.go-right {
+  border: 1px solid gainsboro;
+  color: aliceblue;
+  padding: 0.2rem;
+  cursor: pointer;
+  background-color: black;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 2;
+}
+
+.go-left {
+  top: 50%;
+  left: 15px;
+}
+
+.go-right {
+  top: 50%;
+  right: 15px;
+}
+
+#home-content {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.restaurant-image-container .restaurant-image {
+  max-width: 30%;
+}
 /* Footer */
 #footer-container {
   margin-top: 15rem;
