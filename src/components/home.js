@@ -209,8 +209,8 @@ const secondaryContent = {
     title.textContent = "Our Little Dream";
 
     secondaryContainer.appendChild(aboutUsContainer);
-    secondaryContainer.appendChild(ourRestaurant);
     secondaryContainer.appendChild(ctaContainer);
+    aboutUsContainer.appendChild(ourRestaurant);
 
     secondaryContainer.setAttribute("id", "home-content");
 
@@ -218,19 +218,22 @@ const secondaryContent = {
   },
   createAboutUs: function () {
     const aboutUsContainer = document.createElement("div");
+    const aboutUsDescription = document.createElement("div");
     const aboutUsTitle = document.createElement("h3");
     const aboutUsText = document.createElement("div");
 
-    aboutUsContainer.appendChild(aboutUsTitle);
-    aboutUsContainer.appendChild(aboutUsText);
+    aboutUsContainer.appendChild(aboutUsDescription);
+    aboutUsDescription.appendChild(aboutUsTitle);
+    aboutUsDescription.appendChild(aboutUsText);
 
+    aboutUsDescription.classList.add("about-us-description");
     aboutUsContainer.classList.add("about-us-container");
     aboutUsTitle.classList.add("about-us-title");
     aboutUsText.classList.add("about-us-text");
 
     aboutUsTitle.textContent = "Get to know us";
     aboutUsText.innerHTML =
-      "We are a small, cozy, lovely, yet hugely ambitious traditional Vietnamese food restaurants. <br><br> Authenticity is at the heart of our operations, we love Vietnam, and we want to share that love with you.";
+      "We are a small, cozy, lovely, yet hugely ambitious traditional Vietnamese food restaurants. <br><br> Authenticity is at the heart of our operations, we love Vietnam - and we want to share that love with you.";
 
     return aboutUsContainer;
   },

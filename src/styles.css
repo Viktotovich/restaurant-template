@@ -118,6 +118,14 @@ header {
 }
 
 .restaurant-image-container .restaurant-image {
-  max-width: 30%;
+  max-width: 30vw;
+  padding: 0.9rem 2rem;
 }
+
+.about-us-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* Footer */
