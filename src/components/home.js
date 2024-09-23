@@ -1,5 +1,5 @@
-import vietnamScenary from "../images/vietnam-overview.gif";
-import vietnamDish from "../images/vietnamese-dish.gif";
+import vietnamScenary from "../images/vietnam-overview.jpg";
+import vietnamDish from "../images/vietnamese-dish.jpg";
 import noodleSoup from "../images/pho-ga-noodle-chicken-soup.png";
 import vietnamLove from "../images/we-love-vietnam.jpg";
 import restaurantView from "../images/restaurant-image.png";
@@ -82,18 +82,6 @@ const homeGenerator = {
     }
   },
   createSlides: function (carousel) {
-    const firstGif = new ImageSlide(
-      "vietnam-overview",
-      "A sky scene overlooking the terrains of Vietnam. The beach, the mountains, and the environment is clearly visible",
-      vietnamScenary,
-      0
-    );
-    const secondGif = new ImageSlide(
-      "vietnam-dish",
-      "A shot of a delicious traditional Vietnamese dish.",
-      vietnamDish,
-      1
-    );
     const firstImage = new ImageSlide(
       "noodle-soup",
       "Pho Ga Noodle Chicken Soup, chopsticks, and a white background",
@@ -102,14 +90,26 @@ const homeGenerator = {
     );
     const secondImage = new ImageSlide(
       "vietnam-love",
-      "We love Vietnam. Map of Vietnam with a red and yellow color scheme",
+      "We love Vietnam. A picture of Viernam street with a red and yellow color scheme",
       vietnamLove,
       3
+    );
+    const thirdImage = new ImageSlide(
+      "vietnam-overview",
+      "A sky scene overlooking the terrains of Vietnam. The beach, the mountains, and the environment is clearly visible",
+      vietnamScenary,
+      0
+    );
+    const fourthImage = new ImageSlide(
+      "vietnam-dish",
+      "A shot of a delicious traditional Vietnamese dish.",
+      vietnamDish,
+      1
     );
     //I remembered how much trauma removing duplicates in an object gave me, and delete obj key side effects. Obj changed to arr
     slidesArr = [];
     domsArr = [];
-    slidesArr.push(firstGif, secondGif, firstImage, secondImage);
+    slidesArr.push(firstImage, secondImage, thirdImage, fourthImage);
     this.processMedia(carousel);
   },
   processMedia: function (carousel) {
