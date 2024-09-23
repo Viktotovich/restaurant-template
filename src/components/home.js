@@ -164,21 +164,25 @@ const mediaNavigator = {
     const dom = domsArr[0];
     mediaNavigator.clearSelections();
 
-    dom.classList.add("current-image");
+    dom.appendChild(slidesArr[0].getMedia());
   },
   moveLeft: function () {
     mediaNavigator.currentIndex.decreaseIndex();
     const dom = domsArr[mediaNavigator.currentIndex.getIndex()];
 
     mediaNavigator.clearSelections();
-    dom.classList.add("current-image");
+    dom.appendChild(
+      slidesArr[mediaNavigator.currentIndex.getIndex()].getMedia()
+    );
   },
   moveRight: function () {
     mediaNavigator.currentIndex.increaseIndex();
     const dom = domsArr[mediaNavigator.currentIndex.getIndex()];
 
     mediaNavigator.clearSelections();
-    dom.classList.add("current-image");
+    dom.appendChild(
+      slidesArr[mediaNavigator.currentIndex.getIndex()].getMedia()
+    );
   },
   moveExact: function (e) {
     console.log(e);
@@ -189,7 +193,7 @@ const mediaNavigator = {
   },
   clearSelections: function () {
     domsArr.forEach((element) => {
-      element.classList.remove("current-image");
+      element.textContent = "";
     });
   },
 };

@@ -78,23 +78,13 @@ header {
 /* Content / mid */
 #content {
   width: 100vw;
-  height: 100vh;
 }
 
 /* Home Page */
 .carousel {
   width: 100vw;
-  height: 150%; /* height is the problem */
   position: relative;
   margin: 1rem 0;
-}
-
-.image-container {
-  position: absolute;
-}
-
-.image-container.current-image {
-  z-index: 1;
 }
 
 .image-container img {
@@ -131,6 +121,3 @@ header {
   max-width: 30%;
 }
 /* Footer */
-#footer-container {
-  margin-top: 15rem;
-}
