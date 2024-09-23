@@ -8,4 +8,4 @@ Template for a restaurant, using webpack (less advanced than workit-kit)
 
 To request exact Prettier config setup, email: vlad@vandbruno.com
 
-14SEP 02:21AM - Horrible experience working with positioning and the carousel. It's a curse, according to stack overflow and countless hours researching - there is no way to make it work with the current implementation.
+24SEP 02:21AM - Horrible experience working with positioning and the carousel. It's a curse, according to stack overflow and countless hours researching - there is no way to make it work with the current implementation.

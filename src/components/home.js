@@ -256,9 +256,9 @@ const secondaryContent = {
     const menuTitle = document.createElement("h3");
     const ctaButton = document.createElement("button");
 
-    foodIcon.textContent = "🍴";
+    foodIcon.textContent = "Authentic Vietnamese Experience";
     menuTitle.textContent = "MENU";
-    ctaButton.textContent = "OPEN MENU";
+    ctaButton.textContent = "BROWSE";
 
     ctaContainer.classList.add("cta-container");
     foodIcon.classList.add("food-icon");
