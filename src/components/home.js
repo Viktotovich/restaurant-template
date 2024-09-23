@@ -253,20 +253,16 @@ const secondaryContent = {
     //TODO add an image to the container through css
     const ctaContainer = document.createElement("div");
     const foodIcon = document.createElement("div");
-    const menuTitle = document.createElement("h3");
     const ctaButton = document.createElement("button");
 
-    foodIcon.textContent = "Authentic Vietnamese Experience";
-    menuTitle.textContent = "MENU";
-    ctaButton.textContent = "BROWSE";
+    foodIcon.textContent = "The Authentic Vietnamese Experience";
+    ctaButton.textContent = "BROWSE MENU";
 
     ctaContainer.classList.add("cta-container");
     foodIcon.classList.add("food-icon");
-    menuTitle.classList.add("menu-title");
     ctaButton.classList.add("cta-button");
 
     ctaContainer.appendChild(foodIcon);
-    ctaContainer.appendChild(menuTitle);
     ctaContainer.appendChild(ctaButton);
 
     return ctaContainer;
