@@ -40,7 +40,6 @@ const homeGenerator = {
 
     contentSpace.appendChild(carouselSpace);
     contentSpace.appendChild(homeContent);
-    //contentSpace.appendChild(homeContent);
 
     this.createSlides(carouselSpace);
     mediaNavigator.moveToStart();
@@ -65,24 +64,8 @@ const homeGenerator = {
     goLeft.classList.add("go-left");
     goRight.classList.add("go-right");
     carousel.classList.add("carousel");
-    this.createNavCircles(carousel);
 
     return carousel;
-  },
-  createNavCircles: function (carousel) {
-    const navContainer = document.createElement("div");
-
-    navContainer.classList.add("nav-container");
-    carousel.appendChild(navContainer);
-
-    for (let i = 0; i < 4; i++) {
-      let navCircle = document.createElement("span");
-
-      navCircle.classList.add(`image${i}`);
-
-      navContainer.appendChild(navCircle);
-      navCircle.addEventListener("click", mediaNavigator.moveExact);
-    }
   },
   createSlides: function (carousel) {
     const firstImage = new ImageSlide(
@@ -208,13 +191,6 @@ const mediaNavigator = {
       slidesArr[mediaNavigator.currentIndex.getIndex()].getMedia()
     );
   },
-  moveExact: function (e) {
-    console.log(e);
-    //TODO: Match class with ID to find the right img
-
-    this.clearSelections();
-    //dom.classList.add("current-image");
-  },
   autoSlide: function () {
     mediaNavigator.moveRight();
     setTimeout(mediaNavigator.autoSlide, 5000);
@@ -326,7 +302,6 @@ const secondaryContent = {
     return imageContainer;
   },
   createCTA: function () {
-    //TODO add an image to the container through css
     const ctaContainer = document.createElement("div");
     const foodIcon = document.createElement("div");
     const ctaButton = document.createElement("button");
