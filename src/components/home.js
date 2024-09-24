@@ -44,6 +44,7 @@ const homeGenerator = {
 
     this.createSlides(carouselSpace);
     mediaNavigator.moveToStart();
+    mediaNavigator.autoSlide();
   },
   createCarousel: function () {
     const carousel = document.createElement("div");
@@ -190,6 +191,10 @@ const mediaNavigator = {
 
     this.clearSelections();
     //dom.classList.add("current-image");
+  },
+  autoSlide: function () {
+    mediaNavigator.moveRight();
+    setTimeout(mediaNavigator.autoSlide, 5000);
   },
   clearSelections: function () {
     domsArr.forEach((element) => {
