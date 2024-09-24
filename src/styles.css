@@ -21,8 +21,10 @@ body {
   justify-content: space-between;
   padding: 0 2rem 0 0;
   background-color: var(--main-color-scheme);
-  /* position: absolute; */
-  /* The only fix is to re-add the images un-scaled-down */
+  font-size: larger;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .title-container {
@@ -103,7 +105,7 @@ header {
   background-color: black;
   position: absolute;
   font-size: 2rem;
-  z-index: 2;
+  z-index: 1;
 }
 
 .go-left {
@@ -172,6 +174,39 @@ header {
   opacity: 1;
 }
 
+/* Magic Text */
+.magic-text-container {
+  background-color: var(--main-color-scheme-opaque);
+  font-size: calc(1rem + 2%);
+  padding: 2rem;
+  width: 30%;
+  cursor: pointer;
+  position: absolute;
+  font-size: 2rem;
+  z-index: 1;
+  top: 50%;
+  left: 10%;
+  color: black;
+  -webkit-text-stroke: 0.4px white;
+  /* Credits to: https://www.geeksforgeeks.org/how-to-add-text-outline-with-css/ */
+}
+
+.cursor-icon {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  opacity: 0; /*don't touch, won't work otherwise */
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* Footer */
 #footer {
   background-color: var(--main-color-scheme-opaque);
@@ -196,9 +231,7 @@ header {
 }
 
 /* TODO:
-1 - Make the header more lively and sticky
-2 - Find the brand colors and apply them
-3 - Have dynamic text over the carousel
+1 - Make the header more lively
 4 - Work on other pages and the actual menu:
   i - Menu: 6-7 very generic dishes, but added it to a separate menu images folder to not mix up with other images
   ii - Contact Us: Our contact, and a contact form (basic)

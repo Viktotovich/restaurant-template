@@ -50,6 +50,7 @@ const homeGenerator = {
     const carousel = document.createElement("div");
     const goLeft = document.createElement("span");
     const goRight = document.createElement("span");
+    const magicText = this.createMagicText();
 
     goLeft.textContent = "<";
     goRight.textContent = ">";
@@ -59,6 +60,7 @@ const homeGenerator = {
 
     carousel.appendChild(goLeft);
     carousel.appendChild(goRight);
+    carousel.appendChild(magicText);
 
     goLeft.classList.add("go-left");
     goRight.classList.add("go-right");
@@ -112,6 +114,27 @@ const homeGenerator = {
     domsArr = [];
     slidesArr.push(firstImage, secondImage, thirdImage, fourthImage);
     this.processMedia(carousel);
+  },
+  createMagicText: function () {
+    const magicTextContainer = document.createElement("div");
+    const magicTextTitle = document.createElement("div");
+    const magicText = document.createElement("span");
+    const cursorIcon = document.createElement("span");
+
+    magicTextContainer.classList.add("magic-text-container");
+    magicTextTitle.classList.add("magic-text-title");
+    magicText.classList.add("magic-text");
+    cursorIcon.classList.add("cursor-icon");
+
+    magicTextContainer.appendChild(magicTextTitle);
+    magicTextContainer.appendChild(magicText);
+    magicTextContainer.appendChild(cursorIcon);
+
+    magicTextTitle.textContent = "Re-inventing ";
+    cursorIcon.textContent = "|";
+    mediaNavigator.dynamicTyping();
+
+    return magicTextContainer;
   },
   processMedia: function (carousel) {
     slidesArr.forEach((element) => {
@@ -201,6 +224,54 @@ const mediaNavigator = {
       element.textContent = "";
     });
   },
+  words: [
+    "Vietnamese Cuisine.",
+    "Coulinary Success.",
+    "family recipies.",
+    "authentic.",
+    "excellent food.",
+  ],
+  part: "",
+  i: 0,
+  offset: 0,
+  forwards: true,
+  skipCount: 0,
+  skipDelay: 15,
+  speed: 70,
+  dynamicTyping: function () {
+    setInterval(() => {
+      const magicText = document.querySelector(".magic-text");
+
+      if (this.forwards === true) {
+        if (this.offset >= this.words[this.i].length) {
+          this.skipCount++;
+          if (this.skipCount === this.skipDelay) {
+            this.forwards = false;
+            this.skipCount = 0;
+          }
+        }
+      } else {
+        if (this.offset === 0) {
+          this.forwards = true;
+          this.i++;
+          if (this.i >= this.words.length) {
+            this.i = 0; //index resetter
+          }
+        }
+      }
+      this.part = this.words[this.i].substring(0, this.offset);
+      if (this.skipCount === 0) {
+        if (this.forwards) {
+          this.offset++;
+        } else {
+          this.offset--;
+        }
+      }
+      if (magicText) {
+        magicText.textContent = this.part;
+      }
+    }, this.speed);
+  },
 };
 
 const secondaryContent = {
@@ -275,12 +346,3 @@ const secondaryContent = {
 };
 
 export { homeGenerator };
-
-/*  Carousel
-                    Top
-        <Go Back-------------Go Right>
-                    Bottom
-                    ***** 
-
-            (circles to navigate))
-    */
