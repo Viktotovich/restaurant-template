@@ -313,10 +313,24 @@ const secondaryContent = {
     foodIcon.classList.add("food-icon");
     ctaButton.classList.add("cta-button");
 
+    ctaButton.addEventListener("click", this.sendUserToMenu);
+
     ctaContainer.appendChild(foodIcon);
     ctaContainer.appendChild(ctaButton);
 
     return ctaContainer;
+  },
+  sendUserToMenu: function () {
+    /*okay - this warrants an explanation. Normally files work by directories, if you wanted to link somebody to somewhere, you'd trigger the anchor/link - not in our case: we generate the files (build it).
+    
+    Hence, if we wanted to import the function that generates a menu page - we'd be stuck in a circular loop. Luckily for us, we have the header that always stays in the same spot and is has the access to the necessary function.
+
+    In other words, header itself has the function that will generate our menu - we don't have to do roundabout stuff to get it done. 
+
+    Getting the element and triggering a .click() event is like bringing a bazooka to a knife fight. And would you look at that, it's just one clean beautiful line
+    */
+
+    document.querySelector("#menu").click();
   },
 };
 
