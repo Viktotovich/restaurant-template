@@ -1,4 +1,5 @@
 import { homeGenerator } from "./home";
+import { menuGenerator } from "./menu";
 
 const domManager = {
   findHeaderDom: function () {
@@ -25,7 +26,7 @@ const domManager = {
     homeGenerator.initiateHome();
   },
   menuLoad: function () {
-    console.log("menu");
+    menuGenerator.initiateMenu();
   },
 };
 

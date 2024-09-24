@@ -241,6 +241,9 @@ header {
   }
 }
 
+/* Menu */
+/*Use the index inside Arrays to make classes with that index, and then use it to n+2 style the objects*/
+
 /* Footer */
 #footer {
   background-color: var(--main-color-scheme-opaque);
