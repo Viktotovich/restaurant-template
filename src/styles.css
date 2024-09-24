@@ -1,6 +1,7 @@
 :root {
   --shadow-default: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  --main-color-scheme: rgb(243, 206, 151);
+  --main-color-scheme: rgba(233, 215, 188, 0.5);
+  --main-color-scheme-opaque: rgba(233, 215, 188, 0.9);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,6 +20,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem 0 0;
+  background-color: var(--main-color-scheme);
   /* position: absolute; */
   /* The only fix is to re-add the images un-scaled-down */
 }
@@ -85,7 +87,6 @@ header {
 .carousel {
   width: 100vw;
   position: relative;
-  margin: 1rem 0;
 }
 
 .image-container img {
@@ -115,7 +116,7 @@ header {
 }
 
 #home-content {
-  margin: 2rem 0;
+  margin: 2rem 0 0;
 }
 
 .restaurant-image-container .restaurant-image {
@@ -130,12 +131,18 @@ header {
   align-items: center;
 }
 
+.about-us-description {
+  background-color: var(--main-color-scheme);
+  padding: 0 0.7rem 0.7rem;
+  border-radius: 6px;
+}
+
 .about-us-title {
   text-decoration-line: underline;
 }
 
 .cta-container {
-  padding: 5rem 0;
+  padding: 8rem 0;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   text-align: center;
@@ -144,7 +151,7 @@ header {
 }
 
 .food-icon {
-  background-color: rgba(240, 248, 255, 0.8);
+  background-color: var(--main-color-scheme);
   padding: 0.75rem 0;
 }
 
@@ -155,7 +162,7 @@ header {
   border-radius: 5px;
   margin: 3rem 0.5rem 0;
   opacity: 0.9;
-  background-color: white;
+  background-color: var(--main-color-scheme-opaque);
   font-weight: bold;
 }
 
@@ -165,3 +172,33 @@ header {
 }
 
 /* Footer */
+#footer {
+  background-color: var(--main-color-scheme-opaque);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info-container {
+  padding: 0rem 2rem;
+}
+
+.disclamer {
+  margin: 0.5rem 0;
+}
+
+#mock-logotype {
+  background-image: url(../src/images/restaurant-logo.png);
+  padding: 4rem;
+  background-size: cover;
+}
+
+/* TODO:
+1 - Make the header more lively and sticky
+2 - Find the brand colors and apply them
+3 - Have dynamic text over the carousel
+4 - Work on other pages and the actual menu:
+  i - Menu: 6-7 very generic dishes, but added it to a separate menu images folder to not mix up with other images
+  ii - Contact Us: Our contact, and a contact form (basic)
+*/
