@@ -1,7 +1,25 @@
+@font-face {
+  font-family: "introspectionregular";
+  src: url("../src/fonts/introspection-webfont.woff2") format("woff2"),
+    url("../src/fonts/introspection-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "artsy_morningregular";
+  src: url("../src/fonts/artsy_morning-webfont.woff2") format("woff2"),
+    url("../src/fonts/artsy_morning-webfont.woff2") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --shadow-default: 0px 5px 10px rgba(0, 0, 0, 0.1);
   --main-color-scheme: rgba(233, 215, 188, 0.5);
   --main-color-scheme-opaque: rgba(233, 215, 188, 0.9);
+  --main-font: "artsy_morningregular";
+  --secondary-font: "introspectionregular";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -141,7 +159,15 @@ header {
 }
 
 .about-us-title {
+  padding: 0.5rem 0 0;
+  text-align: center;
   text-decoration-line: underline;
+  font-family: var(--main-font);
+}
+
+.about-us-text {
+  max-width: 45ch;
+  padding: 0 1rem 1rem;
 }
 
 .cta-container {
@@ -156,17 +182,21 @@ header {
 .food-icon {
   background-color: var(--main-color-scheme);
   padding: 0.75rem 0;
+  font-family: var(--secondary-font);
+  font-size: 3rem;
+  -webkit-text-stroke: 0.3x white;
 }
 
 .cta-button {
   appearance: none;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1.25rem 1.5rem 0.8rem;
   border-radius: 5px;
   margin: 3rem 0.5rem 0;
   opacity: 0.9;
   background-color: var(--main-color-scheme-opaque);
   font-weight: bold;
+  font-family: var(--main-font);
 }
 
 .cta-button:hover {
@@ -180,15 +210,19 @@ header {
   font-size: calc(1rem + 2%);
   padding: 2rem;
   width: 30%;
-  cursor: pointer;
   position: absolute;
   font-size: 2rem;
   z-index: 1;
   top: 50%;
   left: 10%;
   color: black;
+  font-family: var(--main-font);
   -webkit-text-stroke: 0.4px white;
   /* Credits to: https://www.geeksforgeeks.org/how-to-add-text-outline-with-css/ */
+}
+
+.magic-text-title {
+  padding: 0 0 0.5rem;
 }
 
 .cursor-icon {
@@ -231,7 +265,7 @@ header {
 }
 
 /* TODO:
-1 - Make the header more lively
+1 - Make the header more lively - meny sizes must scale, background should be better or not exist
 4 - Work on other pages and the actual menu:
   i - Menu: 6-7 very generic dishes, but added it to a separate menu images folder to not mix up with other images
   ii - Contact Us: Our contact, and a contact form (basic)

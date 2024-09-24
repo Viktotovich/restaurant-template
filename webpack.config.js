@@ -1,6 +1,7 @@
 /* eslint-disable */
 const { watchFile } = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { type } = require("os");
 const path = require("path");
 
 module.exports = {
@@ -33,6 +34,10 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: "html-loader",
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
       },
     ],
   },
