@@ -180,6 +180,7 @@ header {
 }
 
 .food-icon {
+  text-align: center;
   background-color: var(--main-color-scheme);
   padding: 0.75rem 0;
   font-family: var(--secondary-font);
@@ -253,6 +254,7 @@ header {
   grid-template-rows: 1fr;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 /*Taking advantage of C in CSS */
@@ -269,31 +271,46 @@ header {
 .menu-category-container:nth-child(even) .menu-image-container {
   grid-area: 1 / 1 / -1 / 2;
 }
-/* END of no touchy area over */
+
+.menu-category-container:nth-child(even) {
+  background-color: gainsboro;
+  border-radius: 10px;
+}
+/* END of no touchy area */
 
 .menu-image-container {
   overflow: hidden;
   height: 100%;
   width: 100%;
+  border-radius: 10px;
 }
 
 .category-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
-/* 
-                Category Container 
-                -----------------
-            Category Description | Img
-            Title                | Img
-            Description    Price | Img
-                [            ]   | Img
-            Another Title        | Img
-                -----------------
 
-    DO NOT GRID THE MENUSPACE - We can flexbox it for a better effect. Flex-direction: column
-    */
+.category-description {
+  font-size: 1.3rem;
+  font-family: var(--main-font);
+}
+
+.menu-item-container {
+  font-size: clamp(0.6rem, 1.5vw + 0.5rem, 3rem);
+  font-family: var(--secondary-font);
+  margin: 1rem 0 0;
+}
+
+.item-name {
+  font-family: var(--main-font);
+  font-size: 0.7rem;
+  margin: 0.9rem 0 0;
+}
+
+.item-price {
+  font-weight: bolder;
+}
 
 /* Footer */
 #footer {
@@ -319,9 +336,4 @@ header {
   cursor: pointer;
 }
 
-/* TODO:
-1 - Make the header more lively - meny sizes must scale, background should be better or not exist
-4 - Work on other pages and the actual menu:
-  i - Menu: 6-7 very generic dishes, but added it to a separate menu images folder to not mix up with other images
-  ii - Contact Us: Our contact, and a contact form (basic)
-*/
+/* TODO: Header and the Contact us page */
