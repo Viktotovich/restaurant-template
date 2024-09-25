@@ -291,6 +291,10 @@ header {
   object-fit: fill;
 }
 
+.category-image:hover {
+  transform: scale(1.05);
+}
+
 .category-description {
   font-size: 1.3rem;
   font-family: var(--main-font);
@@ -311,6 +315,9 @@ header {
 .item-price {
   font-weight: bolder;
 }
+
+/* Contact Us */
+/* append the image here, and grid its container making everything (Except the image) centered */
 
 /* Footer */
 #footer {

@@ -1,5 +1,6 @@
 import { homeGenerator, mediaNavigator } from "./home";
 import { menuGenerator } from "./menu";
+import { formGenerator } from "./contact-us";
 
 const domManager = {
   findHeaderDom: function () {
@@ -37,7 +38,7 @@ const domManager = {
     mediaNavigator.dynamicTyping();
   },
   contactUsLoad: function () {
-    console.log("under-construction");
+    formGenerator.intiateForm();
   },
 };
 
