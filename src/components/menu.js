@@ -237,21 +237,4 @@ const menuController = {
   },
 };
 
-/* 
-                Category Container 
-                -----------------
-            Category Description | Img
-            Title                | Img
-            Description    Price | Img
-                [            ]   | Img
-            Another Title        | Img
-                -----------------
-    To Note: Each menu item has it's own container, title, and description. Price can either be absolutely located - or flexboxed in (title x description 1 cont, price second cont)
-
-    cat container and image cont are flexboxed
-
-    each cat container builds on top of one another, and is added to the menuSpace. 
-
-    DO NOT GRID THE MENUSPACE - We can flexbox it for a better effect. Flex-direction: column
-    */
 export { menuGenerator };

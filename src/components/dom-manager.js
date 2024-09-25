@@ -7,11 +7,13 @@ const domManager = {
     const homeButton = document.querySelector("#home");
     const menuButtonHeader = document.querySelector("#menu");
     const mockLogoType = document.querySelector("#mock-logotype");
+    const contactUsButton = document.querySelector("#contact-us");
 
     homeButton.addEventListener("click", this.initialLoad);
     mockLogoType.addEventListener("click", this.initialLoad);
     extender.addEventListener("click", this.toggleExtender);
     menuButtonHeader.addEventListener("click", this.menuLoad);
+    contactUsButton.addEventListener("click", this.contactUsLoad);
   },
   toggleExtender: function () {
     const tabs = document.querySelector("#tabs");
@@ -33,6 +35,9 @@ const domManager = {
   },
   activateDynamicTyping: function () {
     mediaNavigator.dynamicTyping();
+  },
+  contactUsLoad: function () {
+    console.log("under-construction");
   },
 };
 
