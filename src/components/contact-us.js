@@ -116,7 +116,7 @@ const formGenerator = {
 
     modal.innerHTML = `
         <div class="close-modal"> x </div>
-        <div class="out-contact-container">
+        <div class="reservation-form-container">
             <form action="/submit-reservation" method="POST">
                 <div class="form-group">
                     <label for="name">Name:</label>
