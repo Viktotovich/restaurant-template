@@ -352,6 +352,10 @@ header {
   transform: scale(1.1);
   background-color: var(--main-color-scheme);
 }
+
+.find-us-container {
+  margin-bottom: -5px;
+}
 /* Footer */
 #footer {
   background-color: var(--main-color-scheme-opaque);

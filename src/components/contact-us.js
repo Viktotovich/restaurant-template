@@ -60,6 +60,8 @@ const formGenerator = {
     const findUsContainer = document.createElement("div");
     let mapLocation = document.createElement("div");
 
+    findUsContainer.classList.add("find-us-container");
+
     mapLocation.innerHTML = this.createMap();
 
     findUsContainer.appendChild(mapLocation);
