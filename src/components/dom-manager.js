@@ -1,4 +1,4 @@
-import { homeGenerator } from "./home";
+import { homeGenerator, mediaNavigator } from "./home";
 import { menuGenerator } from "./menu";
 
 const domManager = {
@@ -6,8 +6,10 @@ const domManager = {
     const extender = document.querySelector("#extender");
     const homeButton = document.querySelector("#home");
     const menuButtonHeader = document.querySelector("#menu");
+    const mockLogoType = document.querySelector("#mock-logotype");
 
     homeButton.addEventListener("click", this.initialLoad);
+    mockLogoType.addEventListener("click", this.initialLoad);
     extender.addEventListener("click", this.toggleExtender);
     menuButtonHeader.addEventListener("click", this.menuLoad);
   },
@@ -25,6 +27,12 @@ const domManager = {
   },
   menuLoad: function () {
     menuGenerator.initiateMenu();
+  },
+  activateSlides: function () {
+    mediaNavigator.autoSlide();
+  },
+  activateDynamicTyping: function () {
+    mediaNavigator.dynamicTyping();
   },
 };
 

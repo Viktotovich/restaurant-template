@@ -265,6 +265,7 @@ header {
   background-image: url(../src/images/restaurant-logo.png);
   padding: 4rem;
   background-size: cover;
+  cursor: pointer;
 }
 
 /* TODO:

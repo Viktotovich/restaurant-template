@@ -43,7 +43,6 @@ const homeGenerator = {
 
     this.createSlides(carouselSpace);
     mediaNavigator.moveToStart();
-    mediaNavigator.autoSlide();
   },
   createCarousel: function () {
     const carousel = document.createElement("div");
@@ -115,7 +114,6 @@ const homeGenerator = {
 
     magicTextTitle.textContent = "Re-inventing ";
     cursorIcon.textContent = "|";
-    mediaNavigator.dynamicTyping();
 
     return magicTextContainer;
   },
@@ -334,4 +332,4 @@ const secondaryContent = {
   },
 };
 
-export { homeGenerator };
+export { homeGenerator, mediaNavigator };
