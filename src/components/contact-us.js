@@ -13,8 +13,10 @@ const formGenerator = {
     const contentSpace = this.getContentSpace();
     const contactUsArea = this.createContactUsArea();
     const findUs = this.createFindUsArea();
+    const titleSpace = this.createTitleSpace();
 
     contentSpace.appendChild(contactUsArea);
+    contentSpace.appendChild(titleSpace);
     contentSpace.appendChild(findUs);
   },
   createContactUsArea: function () {
@@ -22,21 +24,36 @@ const formGenerator = {
     const contactUsContainer = document.createElement("div");
     const contactUsButton = document.createElement("button");
     const reservationButton = document.createElement("button");
+    const buttonContainer = document.createElement("div");
 
     contactUsContainer.classList.add("contact-us-container");
     contactUsButton.classList.add("contact-us-button");
     reservationButton.classList.add("reservation-button");
+    buttonContainer.classList.add("button-container");
 
     contactUsButton.textContent = "Contact Us";
     reservationButton.textContent = "Reserve in Advance";
 
-    contactUsContainer.appendChild(contactUsButton);
-    contactUsContainer.appendChild(reservationButton);
+    contactUsContainer.appendChild(buttonContainer);
+    buttonContainer.appendChild(contactUsButton);
+    buttonContainer.appendChild(reservationButton);
 
     contactUsButton.addEventListener("click", this.contactUsPopup);
     reservationButton.addEventListener("click", this.reservationPopup);
 
     return contactUsContainer;
+  },
+  createTitleSpace: function () {
+    const titleSpace = document.createElement("div");
+    const mapTitle = document.createElement("div");
+
+    titleSpace.classList.add("title-space");
+    mapTitle.classList.add("map-title");
+
+    mapTitle.textContent = "You can find us here:";
+
+    titleSpace.appendChild(mapTitle);
+    return titleSpace;
   },
   createFindUsArea: function () {
     // This.. just works lol - no further ammendments required

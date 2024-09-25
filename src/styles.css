@@ -317,8 +317,41 @@ header {
 }
 
 /* Contact Us */
-/* append the image here, and grid its container making everything (Except the image) centered */
+/* display grid: because I need it's methods */
+.contact-us-container {
+  height: 150vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: url(../src/images/contact-us-images/contact-us-bg.png);
+}
 
+.map-title {
+  padding: 2rem 0;
+  text-align: center;
+  font-family: var(--main-font);
+  background-color: var(--main-color-scheme);
+}
+
+.button-container button {
+  margin: 0 2rem;
+  padding: 0.7rem 3rem;
+  appearance: none;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: none;
+  background-color: var(--main-color-scheme-opaque);
+  font-family: var(--main-font);
+  color: black;
+  -webkit-text-stroke: 0.2px white;
+  transition: transform 0.5s ease, background-color 0.3s ease;
+}
+
+.button-container button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: var(--main-color-scheme);
+}
 /* Footer */
 #footer {
   background-color: var(--main-color-scheme-opaque);
