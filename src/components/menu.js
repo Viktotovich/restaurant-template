@@ -171,6 +171,7 @@ const menuGenerator = {
 const menuController = {
   domsArray: [],
   createMenuSpace: function () {
+    this.domsArray = [];
     const menuSpace = document.createElement("div");
     menuItems.forEach((element) => {
       this.createCat(element, menuSpace);
@@ -178,10 +179,64 @@ const menuController = {
 
     return menuSpace;
   },
+  getImage: function (catObj) {
+    return catObj.getMedia();
+  },
   createCat: function (menuCat, menuSpace) {
+    const menuCategoryContainer = document.createElement("div");
+    const imageContainer = document.createElement("div");
+    const categoryImage = this.getImage(menuCat);
     const catContainer = document.createElement("div");
+    const catDescription = document.createElement("div");
 
-    /* 
+    catDescription.textContent = `${menuCat.categoryDescription}`;
+
+    categoryImage.setAttribute("alt", `${menuCat.categoryDescription}`);
+    menuCategoryContainer.classList.add("menu-category-container");
+    imageContainer.classList.add("menu-image-container");
+    categoryImage.classList.add("category-image");
+    catContainer.classList.add("category-container");
+    catDescription.classList.add("category-description");
+
+    menuSpace.appendChild(menuCategoryContainer);
+    menuCategoryContainer.appendChild(catContainer);
+    menuCategoryContainer.appendChild(imageContainer);
+    imageContainer.appendChild(categoryImage);
+    catContainer.appendChild(catDescription);
+
+    //process each item inside a menu category
+    menuCat.items.forEach((element) => {
+      this.createMenuItem(element, catContainer);
+    });
+  },
+  createMenuItem: function (menuItem, catContainer) {
+    const menuItemContainer = document.createElement("div");
+    const itemDescriptionContainer = document.createElement("div");
+    const itemName = document.createElement("div");
+    const itemDescription = document.createElement("div");
+    const itemPrice = document.createElement("span");
+
+    menuItemContainer.classList.add("menu-item-container");
+    itemDescriptionContainer.classList.add("item-description-container");
+    itemName.classList.add("item-name");
+    itemDescription.classList.add("item-description");
+    itemPrice.classList.add("item-price");
+
+    itemName.textContent = `${menuItem.itemName}`;
+    itemDescription.textContent = `${menuItem.itemDescription}`;
+    itemPrice.textContent = `${menuItem.getPrice()}`;
+
+    catContainer.appendChild(menuItemContainer);
+    menuItemContainer.appendChild(itemDescriptionContainer);
+    menuItemContainer.appendChild(itemPrice);
+    itemDescriptionContainer.appendChild(itemName);
+    itemDescriptionContainer.appendChild(itemDescription);
+
+    this.domsArray.push(menuItemContainer);
+  },
+};
+
+/* 
                 Category Container 
                 -----------------
             Category Description | Img
@@ -198,7 +253,4 @@ const menuController = {
 
     DO NOT GRID THE MENUSPACE - We can flexbox it for a better effect. Flex-direction: column
     */
-  },
-};
-
 export { menuGenerator };
