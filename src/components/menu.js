@@ -34,7 +34,6 @@ class MenuItem {
   }
 
   getPrice() {
-    //this feels dirty, like something ain't right.
     //TODO: find out what's wrong with this
     return `${this.itemPrice}.00 USD `;
   }
@@ -176,6 +175,8 @@ const menuController = {
     menuItems.forEach((element) => {
       this.createCat(element, menuSpace);
     });
+
+    menuSpace.classList.add("menu-space");
 
     return menuSpace;
   },

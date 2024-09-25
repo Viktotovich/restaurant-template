@@ -243,6 +243,57 @@ header {
 
 /* Menu */
 /*Use the index inside Arrays to make classes with that index, and then use it to n+2 style the objects*/
+.menu-space {
+  padding: 3.5rem 6rem;
+}
+
+.menu-category-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Taking advantage of C in CSS */
+.category-container {
+  margin-right: 2rem;
+}
+
+/* no touchy area */
+.menu-category-container:nth-child(even) .category-container {
+  grid-area: 1 / 2 / -1 / -1;
+  margin-left: 2rem;
+}
+
+.menu-category-container:nth-child(even) .menu-image-container {
+  grid-area: 1 / 1 / -1 / 2;
+}
+/* END of no touchy area over */
+
+.menu-image-container {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* 
+                Category Container 
+                -----------------
+            Category Description | Img
+            Title                | Img
+            Description    Price | Img
+                [            ]   | Img
+            Another Title        | Img
+                -----------------
+
+    DO NOT GRID THE MENUSPACE - We can flexbox it for a better effect. Flex-direction: column
+    */
 
 /* Footer */
 #footer {
